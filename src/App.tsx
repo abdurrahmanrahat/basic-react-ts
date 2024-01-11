@@ -1,5 +1,5 @@
 import "./App.css";
-import UseStateForm from "./pages/UseStateForm";
+import UseReducerExample from "./pages/UseReducerExample";
 
 function App() {
   return (
@@ -9,7 +9,9 @@ function App() {
         setCounter={setCounter}
       ></UseStateExample> */}
 
-      <UseStateForm></UseStateForm>
+      {/* <UseStateForm></UseStateForm> */}
+
+      <UseReducerExample></UseReducerExample>
     </div>
   );
 }

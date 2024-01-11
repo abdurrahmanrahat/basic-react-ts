@@ -12,17 +12,24 @@ const UseStateForm = () => {
     console.log(user);
   };
 
+  // handle change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(user);
+    const inputName = e.target.name;
+    setUser({ ...user, [inputName]: e.target.value });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input
-        onChange={(e) => setUser({ ...user, name: e.target.value })}
+        onChange={handleChange}
         className="border-2 border-black rounded"
         type="text"
         name="name"
         id="name"
       />
       <input
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
+        onChange={handleChange}
         className="border-2 border-black rounded"
         type="email"
         name="email"
