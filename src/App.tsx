@@ -3,7 +3,7 @@ import UseStateExample from "./pages/UseStateExample";
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen flex justify-center items-center">
       <UseStateExample></UseStateExample>
     </div>
   );
