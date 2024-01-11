@@ -1,5 +1,5 @@
 import "./App.css";
-import UseReducerExample from "./pages/UseReducerExample";
+import UseEffectExample from "./pages/UseEffectExample";
 
 function App() {
   return (
@@ -11,7 +11,9 @@ function App() {
 
       {/* <UseStateForm></UseStateForm> */}
 
-      <UseReducerExample></UseReducerExample>
+      {/* <UseReducerExample></UseReducerExample> */}
+
+      <UseEffectExample></UseEffectExample>
     </div>
   );
 }
