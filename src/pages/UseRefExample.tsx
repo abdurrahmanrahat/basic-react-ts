@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import CustomInput from "../components/CustomInput";
 
 const UseRefExample = () => {
   //   const [count, setCount] = useState(0);
@@ -22,13 +23,17 @@ const UseRefExample = () => {
     <div>
       <h2>useRef</h2>
       <form>
-        <input
+        {/* <input
           ref={myRef}
           type="text"
           name="name"
           id="name"
           className="border-2 border-purple-600"
-        />
+        /> */}
+        <CustomInput
+          ref={myRef}
+          className="border-2 border-purple-600"
+        ></CustomInput>
         <button type="submit" className="btn-secondary">
           Submit
         </button>
