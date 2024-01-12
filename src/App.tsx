@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import "./App.css";
-import { ThemeContext } from "./context/ThemeProvider";
+import { MenuItem, MenuList } from "./components/Menu";
+import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
 import UseRefExample from "./pages/UseRefExample";
 
 function App() {
-  const { dark, setDark } = useContext(ThemeContext);
+  const { dark, setDark } = useContext(ThemeContext) as TThemeContext;
 
   console.log(dark);
 
@@ -28,6 +29,10 @@ function App() {
       <button className="btn-secondary" onClick={() => setDark(!dark)}>
         Toggle
       </button>
+
+      <MenuList>
+        <MenuItem></MenuItem>
+      </MenuList>
 
       <UseRefExample></UseRefExample>
     </div>
