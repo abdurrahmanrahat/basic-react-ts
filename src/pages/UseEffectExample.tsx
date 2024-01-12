@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const UseEffectExample = () => {
   const [hidden, setHidden] = useState(false);
+  const [user, setUser] = useState({ name: "", email: "" });
 
   //   useEffect(() => {
   //     console.log("render");
@@ -11,16 +12,34 @@ const UseEffectExample = () => {
   //     };
   //   }, [hidden]);
 
+  useEffect(() => {
+    console.log("Render");
+  }, [user.name, user.email]);
+
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => setHidden((prev) => !prev)}
         className="btn-secondary"
       >
         {hidden ? "show" : "Hide"}
       </button>
 
-      {hidden || <Todo></Todo>}
+      {hidden || <Todo></Todo>} */}
+      <input
+        onBlur={(e) => setUser({ ...user, name: e.target.value })}
+        className="border-2 border-black rounded"
+        type="text"
+        name="name"
+        id="name"
+      />
+      <input
+        onBlur={(e) => setUser({ ...user, email: e.target.value })}
+        className="border-2 border-black rounded"
+        type="text"
+        name="email"
+        id="name"
+      />
     </div>
   );
 };
