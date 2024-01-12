@@ -20,26 +20,47 @@ const UseEffectExample = () => {
         {hidden ? "show" : "Hide"}
       </button>
 
-      {hidden || <Counter></Counter>}
+      {hidden || <Todo></Todo>}
     </div>
   );
 };
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
+// const Counter = () => {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       console.log("render");
+//       setCount((prev) => prev + 1);
+//     }, 1000);
+
+//     return () => {
+//       clearInterval(intervalId);
+//     };
+//   }, []);
+
+//   return <h2>{count}</h2>;
+// };
+
+const Todo = () => {
+  const controller = new AbortController();
+  const signal = controller.signal; // it is an property. that's why don't call it.
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      console.log("render");
-      setCount((prev) => prev + 1);
-    }, 1000);
+    fetch("https://jsonplaceholder.typicode.com/todos/1", { signal })
+      .then((res) => res.json())
+      .then((data) => alert(data.title));
 
     return () => {
-      clearInterval(intervalId);
+      controller.abort(); // it is an method, that's why called it.
     };
   }, []);
 
-  return <h2>{count}</h2>;
+  return (
+    <div>
+      <h2>Todos</h2>
+    </div>
+  );
 };
 
 export default UseEffectExample;
